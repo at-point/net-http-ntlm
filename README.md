@@ -12,7 +12,7 @@ such as MS Exchange Server and IIS.
 ## Install
 
 ```sh
-sudo gem install net-http-ntlm
+gem install net-http-ntlm
 ```
 
 If you'd rather install net-http-ntlm using `bundler`, add a line for it in your Gemfile:
