@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  pull_request_target:
+    branches:
+      - master
+
+jobs:
+  bundler_audit:
+    name: Bundler audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+
+      - name: Run bundler-audit
+        run: bundle exec bundler-audit
+
+  rubocop:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'
+          bundler-cache: true
+
+      - name: Run rubocop
+        run: bundle exec rubocop
+
+  rspec:
+    name: RSpec
+    strategy:
+      matrix:
+        os-version: [ 'ubuntu-latest' ]
+        ruby-version:
+          - 2.5
+          - 2.6
+          - 2.7
+          - 3.0
+      fail-fast: true
+
+    runs-on: ${{ matrix.os-version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Run Tests
+        run: bundle exec rspec
