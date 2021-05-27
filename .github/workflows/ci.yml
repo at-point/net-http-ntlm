@@ -46,6 +46,9 @@ jobs:
       - name: Run rspec
         run: bundle exec rspec
 
+      - name: Output codecov report
+        run: cat ./coverage/.resultset.json
+
       - name: Coverage
         uses: codecov/codecov-action@v1
         if: env.COVERAGE == 'true'
