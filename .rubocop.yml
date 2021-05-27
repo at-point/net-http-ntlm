@@ -1,0 +1,16 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  NewCops: enable
+  Exclude:
+    - bin/*
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
