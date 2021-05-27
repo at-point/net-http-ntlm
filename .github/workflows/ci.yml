@@ -21,9 +21,9 @@ jobs:
           - 2.7
           - 3.0
         include:
-          - ruby: '3.0'
+          - ruby-version: '3.0'
             coverage: 'true'
-      fail-fast: true
+      fail-fast: false
 
     runs-on: ${{ matrix.os-version }}
 
