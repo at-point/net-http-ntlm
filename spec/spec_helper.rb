@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'simplecov'
 require 'net/http/ntlm'
 require_relative 'support/matchers/a_ntlm_request'
 require_relative 'support/matchers/a_regular_request'
