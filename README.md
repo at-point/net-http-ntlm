@@ -1,5 +1,6 @@
 # net-http-ntlm
 [![CI](https://github.com/at-point/net-http-ntlm/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/at-point/net-http-ntlm/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/at-point/net-http-ntlm/branch/main/graph/badge.svg?token=B9C9BRLWR6)](https://codecov.io/gh/at-point/net-http-ntlm)
 [![Gem Version](https://badge.fury.io/rb/net-http-ntlm.svg)](https://badge.fury.io/rb/net-http-ntlm)
 
 Adds NTLM authentication to HTTP requests using the rubyntlm gem.
