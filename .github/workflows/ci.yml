@@ -20,9 +20,15 @@ jobs:
           - 2.6
           - 2.7
           - 3.0
+        include:
+          - ruby: '3.0'
+            coverage: 'true'
       fail-fast: true
 
     runs-on: ${{ matrix.os-version }}
+
+    env:
+      COVERAGE: "${{matrix.coverage}}"
 
     steps:
       - name: Checkout code
@@ -37,8 +43,9 @@ jobs:
       - name: Run bundler-audit
         run: bundle exec bundler-audit
 
-      # - name: Run rubocop
-      #   run: bundle exec rubocop
-
       - name: Run rspec
         run: bundle exec rspec
+
+      - name: Coverage
+      - uses: codecov/codecov-action@v1
+        if: env.COVERAGE == 'true'
