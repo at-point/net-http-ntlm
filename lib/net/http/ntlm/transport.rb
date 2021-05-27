@@ -13,7 +13,7 @@ module Net::HTTP::NTLM::Transport
   # @param body [String] Request body
   # @yield [Net::HTTPResponse] Passes the HTTP response object to the block
   # @return [Net::HTTPResponse] The HTTP response object
-  def request_with_ntlm(req, body = nil, &block) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/MethodLength
+  def request_with_ntlm(req, body = nil, &block)
     # If we don't have NTLM credentials, handle as regular request
     return request_without_ntlm_auth(req, body, &block) unless req.ntlm_auth_user
 
