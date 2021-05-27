@@ -1,4 +1,6 @@
 # net-http-ntlm
+[![CI](https://github.com/at-point/net-http-ntlm/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/at-point/net-http-ntlm/actions/workflows/ci.yml)
+
 Adds NTLM authentication to HTTP requests using the rubyntlm gem.
 A drop-in replacement for ruby-ntlm with NTLMv2 support.
 
