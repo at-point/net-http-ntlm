@@ -10,42 +10,8 @@ on:
       - main
 
 jobs:
-  bundler_audit:
-    name: Bundler audit
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
-          bundler-cache: true
-
-      - name: Run bundler-audit
-        run: bundle exec bundler-audit
-
-  rubocop:
-    name: Lint
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'
-          bundler-cache: true
-
-      - name: Run rubocop
-        run: bundle exec rubocop -c .rubocop.yml
-
-  rspec:
-    name: RSpec
+  ci:
+    name: CI
     strategy:
       matrix:
         os-version: [ 'ubuntu-latest' ]
@@ -68,5 +34,11 @@ jobs:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
 
-      - name: Run Tests
+      - name: Run bundler-audit
+        run: bundle exec bundler-audit
+
+      - name: Run rubocop
+        run: bundle exec rubocop
+
+      - name: Run rspec
         run: bundle exec rspec
