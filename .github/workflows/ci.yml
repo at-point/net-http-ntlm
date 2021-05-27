@@ -37,8 +37,8 @@ jobs:
       - name: Run bundler-audit
         run: bundle exec bundler-audit
 
-      - name: Run rubocop
-        run: bundle exec rubocop
+      # - name: Run rubocop
+      #   run: bundle exec rubocop
 
       - name: Run rspec
         run: bundle exec rspec
