@@ -24,7 +24,7 @@ gem 'net-http-ntlm'
 ## Usage
 
 ```rb
-require 'net/ntlm/http'
+require 'net/http/ntlm'
 http = Net::HTTP.new('www.example.com')
 request = Net::HTTP::Get.new('/')
 request.ntlm_auth('User', 'Domain', 'Password')
