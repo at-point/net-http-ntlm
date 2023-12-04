@@ -21,6 +21,15 @@ If you'd rather install net-http-ntlm using `bundler`, add a line for it in your
 gem 'net-http-ntlm'
 ```
 
+## Note about Ruby 3 and OpenSSL 3
+
+NTLM potentially uses legacy ciphers, which need to be enabled explicitly.
+
+You can either create a custom OpenSSL profile in Ruby or load a custom SSL
+configuration by setting `OPENSSL_CONF=` before Ruby loads.
+
+There's an example in the [Github Actions][.github/workflows/ci.yml]
+
 ## Usage
 
 ```rb
